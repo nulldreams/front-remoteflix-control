@@ -2,3 +2,36 @@
     max-width: 100%;
     height: auto;
 }
+
+.btn {
+    background: #fff;
+    padding: 10px;
+    border-radius: .20em;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.btn-netflix {
+    background: #b9090b;
+    color: #fff;
+    font-size: 22px;
+}
+.netflix-text {
+    color: #e50914;
+    font-size: 22px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.control-btn {
+    background: #b9090b;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
