@@ -1,0 +1,20 @@
+{
+  "name": "controller-netflix",
+  "version": "1.0.0",
+  "description": "My cat&#39;s pajamas Nuxt.js project",
+  "author": "Igor Souza Martins",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^1.0.0",
+    "vue-socket.io": "^2.1.1-b"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.1"
+  }
+}
