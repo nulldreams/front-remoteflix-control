@@ -86,6 +86,7 @@ export default {
     }
   },
   created() {
+    alert(this.$route.query.url)
     $(function() {
       feather.replace();
     });
