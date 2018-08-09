@@ -18,7 +18,8 @@ module.exports = {
     ],
     script: [
       { src: 'https://code.jquery.com/jquery-3.3.1.min.js' },
-      { src: 'https://unpkg.com/feather-icons' }
+      { src: 'https://unpkg.com/feather-icons' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js' }
     ]
   },
 

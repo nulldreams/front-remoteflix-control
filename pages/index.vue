@@ -1,7 +1,8 @@
 <template>
   <div class="principal">
-    <div class="nav">
-      <!-- <div class="brand"><img src="logo.png" alt="" class="img-fluid"></div> -->
+    {{ $store.state.server }}
+    <!-- <div class="nav">
+      <div class="brand"><img src="logo.png" alt="" class="img-fluid"></div>
       <div class="connected">
         <p class="netflix-text">{{ connected }}</p>
       </div>
@@ -25,12 +26,13 @@
         </div>
       </div>
       <a v-show="connected === 'connected' && netflix.shows.length <= 0" class="btn btn-netflix" @click="sendRead">List Movies/Shows</a>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 export default {
+  name: "home",
   data() {
     return {
       messages: [],
@@ -39,32 +41,33 @@ export default {
         shows: []
       },
       player: true,
-      connected: 'disconnected',
+      connected: "disconnected",
       commands: {
         play_resume: "parar/continuar",
         next: "next",
         back: "back",
         fullscreen: "fullscreen",
-        refresh: 'refresh-info',
-        read: 'read',
-        open: 'open'
+        refresh: "refresh-info",
+        read: "read",
+        open: "open"
       },
       video: undefined
     };
   },
   sockets: {
-    connect: function() {
+    connect: function(teste) {
+      console.log(teste);
       console.log("Vue socket connected");
     },
     stream: function(msg) {
-      if (msg === 'connected') return this.connected = msg
+      if (msg === "connected") return (this.connected = msg);
     },
     video_info: function(info) {
       this.video = info;
       console.log(info);
     },
-    'all-shows': function (_shows) {
-      this.netflix.shows = _shows
+    "all-shows": function(_shows) {
+      this.netflix.shows = _shows;
     }
   },
   methods: {
@@ -72,21 +75,26 @@ export default {
       this.$socket.emit("stream", this.commands.read);
     },
     open: function(index) {
-      this.$socket.emit("stream", `${this.commands.open}:${index}`)
-      this.player = true
+      this.$socket.emit("stream", `${this.commands.open}:${index}`);
+      this.player = true;
     },
     play: function() {
-      this.$socket.emit("stream", this.commands.play_resume)
+      this.$socket.emit("stream", this.commands.play_resume);
     },
     next: function() {
-      this.$socket.emit("stream", this.commands.next)
+      this.$socket.emit("stream", this.commands.next);
     },
     fullscreen: function() {
-      this.$socket.emit("stream", this.commands.fullscreen)
+      this.$socket.emit("stream", this.commands.fullscreen);
     }
   },
   created() {
-    alert(this.$route.query.url)
+    console.log(this.$store.state.server)
+    const socket = io(this.$store.state.server);
+    socket.on("connection", () => {
+      console.log("conectado");
+    });
+
     $(function() {
       feather.replace();
     });
@@ -94,7 +102,7 @@ export default {
 };
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
 
 .principal {
   height: 100vh;
