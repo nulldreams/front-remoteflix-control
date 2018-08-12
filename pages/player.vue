@@ -1,7 +1,7 @@
 <template>
     <div class="player-content">
         <div class="info-ep">
-            <p>Rick and Morty T1:E1 Piloto</p>
+            <!-- <p>Rick and Morty T1:E1 Piloto</p> -->
         </div>
         <div class="player">
             <a class="control-btn" @click="play">

@@ -1,6 +1,6 @@
 <template>
 <qrcode-reader @init="onInit" :paused="paused" @decode="onDecode">
-  <b>stuff here overlays the camera stream</b>
+  <!-- <b>stuff here overlays the camera stream</b> -->
 </qrcode-reader>
 </template>
 <script>
