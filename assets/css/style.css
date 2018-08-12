@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+
 .img-fluid {
     max-width: 100%;
     height: auto;
@@ -11,9 +13,13 @@
 }
 
 .btn-netflix {
-    background: #b9090b;
+    background: #333;
     color: #fff;
-    font-size: 22px;
+    font-size: 18px;
+    height: 50px;
+    padding: 15px;
+
+    cursor: pointer;
 }
 .netflix-text {
     color: #e50914;

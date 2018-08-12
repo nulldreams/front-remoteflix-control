@@ -12,13 +12,20 @@
 //   "all-shows": function (_shows) {
 //     this.netflix.shows = _shows;
 //   }
-exports.connect = (server) => {
-  console.log(server)
+exports.connect = (server, cb) => {
   const socket = io(server);
-  console.log(socket)
   socket.on("connect", () => {
-    console.log("conectado");
-  })
+    console.log('connected')
+    return cb(null, { socket, connected: true })
+  })   
+}
 
-  return socket
+exports.all_genres = (socket, cb) => {
+  console.log(socket)
+  socket.emit('stream', 'all-genres')
+
+  socket.on('all-genres', (genres) => {
+    console.log(genres)
+    return cb(null, genres)
+  })    
 }
